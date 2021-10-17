@@ -34,6 +34,9 @@ app.get('/account/create/:name/:email/:password', function(req, res) {
     })
 });
 
+app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 app.get('/account/login/:email/:password', function (req, res) {
     console.log(req.params.email, req.params.password);

@@ -39,8 +39,12 @@ function CreateFormForLogin(props){
     function createAccount() {
         window.location.replace("/CreateAccount");
     }
-    function handle(){
+    function handleLogin(){
         console.log(email,password);
+        if (email === "" || password === "") {
+            alert("Please enter complete information");
+            return
+        }
         ctx.users.push({email,password});
         props.setShow(false);
         
@@ -77,7 +81,7 @@ function CreateFormForLogin(props){
             onChange={e => setPassword(e.currentTarget.value)}/><br/>
         <button type="button"
             className="btn btn-primary"
-            onClick={handle} style={{margin: "5px"}}>Login</button>
+            onClick={handleLogin} style={{margin: "5px"}}>Login</button>
 
         <button type="button"
             className="btn btn-primary"

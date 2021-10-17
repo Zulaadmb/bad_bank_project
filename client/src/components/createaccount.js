@@ -49,6 +49,10 @@ function CreateForm(props){
 
     function handle(){
         console.log(name,email,password);
+        if (name === "" || email === "" || password === "") {
+            alert("Please enter complete information");
+            return
+        }
         const url = `/account/create/${name}/${email}/${password}`;
         (async () => {
             var res = await fetch(url);
