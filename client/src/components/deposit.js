@@ -48,7 +48,6 @@ const Account = (props) => {
 
   React.useEffect(() => { 
     
-    
     if (props.user === undefined) {
       return 
     }
@@ -87,6 +86,6 @@ const Account = (props) => {
   );
 };
 // ========================================
-ReactDOM.render(<Account />, document.getElementById("root"));
+// ReactDOM.render(<Account />, document.getElementById("root"));
 
 export default Account;

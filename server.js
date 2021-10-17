@@ -89,14 +89,20 @@ app.get('/account/balance/:email', function (req, res) {
 app.post('/account/deposit', function (req, res) {
     console.log(req.body);
     dal.updateOne(req.body.user, req.body.balance)
-    dal.createHistory(new Date(), req.params.user, req.body.balance, "deposit");
+    dal.createHistory(new Date(), req.params.user, req.body.balance, "deposit")
+    .then((res) => {
+        res.send({code: "success"})
+    })
 });
 
 app.post('/account/withdraw', function (req, res) {
     console.log(req.session);
     dal.updateOne(req.body.user, req.body.balance)
     const now = new Date();
-    dal.createHistory(now, req.body.user, req.body.balance, "withdraw");
+    dal.createHistory(now, req.body.user, req.body.balance, "withdraw")
+    .then((res) => {
+        res.send({code: "success"})
+    })
 });
 
 
