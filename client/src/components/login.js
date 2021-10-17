@@ -41,6 +41,10 @@ function CreateFormForLogin(props){
     }
     function handleLogin(){
         console.log(email,password);
+        if (email === "" || password === "") {
+            alert("Please enter complete information");
+            return
+        }
         // ctx.users.push({email,password});
         props.setShow(false);
         const url = `/account/login/${email}/${password}`;
