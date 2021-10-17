@@ -63,8 +63,8 @@ function NavBar(props){
                                 <a className="nav-link" href="#" onClick={handleLogout}>Logout</a>
                             </li>
                     </ul>
-                    <span class="navbar-text">
-                        Welcome {localStorage.getItem("loggedIn")}
+                    <span class="navbar-text" style={{textAlign: "right"}}>
+                        Welcome {localStorage.getItem("loggedUser")}
                     </span>
                     </div>
                 </div>
