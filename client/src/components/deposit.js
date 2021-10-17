@@ -35,6 +35,7 @@ const Account = (props) => {
     getBalance(props.user)
     .then((res) => {
       console.log("Balance query successful for ", props.user);
+      console.log("Balance query successful ", res.data);
       setTotalState(Number(res.data.balance));
     })
   //   (async () => {
