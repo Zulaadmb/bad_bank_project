@@ -80,6 +80,7 @@ app.get('/account/info', function(req, res) {
 });
 
 app.get('/account/balance/:email', function (req, res) {
+    console.log(req.params);
     dal.findOne(req.params.email)
     .then((docs) => {
         console.log(docs);
