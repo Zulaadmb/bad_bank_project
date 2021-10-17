@@ -34,9 +34,6 @@ app.get('/account/create/:name/:email/:password', function(req, res) {
     })
 });
 
-require('./routes/html_routes')(app);
-
-
 app.post('/account/login', function (req, res) {
     console.log(req.body.email, req.body.password);
     dal.findOne(req.body.email)
@@ -53,6 +50,8 @@ app.post('/account/login', function (req, res) {
         }
     })
 });
+
+require('./routes/html_routes')(app);
 
 app.get('/account/logout', function (req, res) {
     console.log(req.session);
