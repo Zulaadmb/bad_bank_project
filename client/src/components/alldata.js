@@ -1,4 +1,3 @@
-import ReactDOM from "react-dom";
 import React from 'react';
 
 
@@ -9,13 +8,11 @@ function AllData(props){
     React.useEffect(() => {
         //fetch all accounts from API
         const url = `/account/all/${props.user}`;
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                jsonData = data;
-                setData(JSON.stringify(data));
-            });
+        
+        getAllHistory(props.user)
+        .then((res) => {
+            setData(res.data)
+        })
     }, []);
 
     return(
@@ -34,7 +31,7 @@ function AllData(props){
                  <th>Transaction Type</th>
              </tr>
              
-             {data && jsonData.map((transaction) => (
+             {data && data.map((transaction) => (
                 <tr>
                     <td>{transaction.timeStamp}</td>
                     <td>{transaction.email}</td>
