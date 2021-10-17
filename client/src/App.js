@@ -7,19 +7,17 @@ import Account from '../src/components/deposit';
 import AccountWithdraw from '../src/components/withdraw';
 import Balance from '../src/components/balance';
 import { BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
+import {getUserInfo} from '../src/utils/API';
 
 export default function App (){
   const [user, setUser] = React.useState();
 
   React.useEffect(() => { 
       const url = `/account/info`;
-      (async () => {
-        var res = await fetch(url);
-        var data = await res.json();
-        console.log("User is ", data);
-        setUser(data.user);
-    })();
-      
+      getUserInfo()
+      .then((res) => {
+        setUser(res.data.user);
+      })
     }, []);
   
   return ( //<NavBar/>
