@@ -58,6 +58,9 @@ function NavBar(props){
                             <a className="nav-link" href="#" onClick={handleLogout}>Logout</a>
                         </li>
                     </ul>
+                    <span class="navbar-text">
+                        Welcome {localStorage.getItem("loggedIn")}
+                    </span>
                 </div>
             </nav>
         );
