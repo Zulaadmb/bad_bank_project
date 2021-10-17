@@ -9,7 +9,7 @@ const port = process.env.PORT || 8080;
 var bodyParser = require('body-parser')
 
 //used to serve static files from public directory
-app.use(express.static(__dirname + '/client/build'));
+app.use(express.static('client/build'));
 app.use(cors());
 app.use(session({secret:'9a22dad3bd3f6a74c258586b1538480db3978bbb'
 ,name:'9a22dad3bd3f6a74c258586b1538480db3978bbb'
@@ -35,7 +35,7 @@ app.get('/account/create/:name/:email/:password', function(req, res) {
 });
 
 app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+    res.sendFile(path.join(__dirname, "client/build/index.html"));
 });
 
 app.get('/account/login/:email/:password', function (req, res) {
