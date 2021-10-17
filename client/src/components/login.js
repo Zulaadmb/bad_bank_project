@@ -50,7 +50,7 @@ function CreateFormForLogin(props){
         login(data)  
         .then((res) => {
             console.log(res);
-            if (res.code === "success") {
+            if (res.data.code === "success") {
                 props.setUser(email);
                 // window.location.replace("/deposit");
             }
