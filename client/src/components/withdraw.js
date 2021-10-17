@@ -40,7 +40,7 @@ const ATMWithraw = ({ onChange }) => {
         const data = {user: props.user, balance: totalState - transactionState};
         withrawFund(data)
         .then((res) => {
-          console.log("Fund withdraw successful");
+          console.log("Fund withdraw successful ", res.data);
           setTotalState(Number(res.data.balance));
         })
         // (async () => {

@@ -19,11 +19,11 @@ function Balance(){
 function CreateFormForBalance(props){
     const [email, setEmail]         = React.useState('');
     const [amount, setAmount]   = React.useState('');
-    const ctx = React.useContext(UserContext);
+    // const ctx = React.useContext(UserContext);
 
     function handle(){
         console.log(email);
-        ctx.users.push({email});
+        // ctx.users.push({email});
         props.setShow(false);
     }
 
