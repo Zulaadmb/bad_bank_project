@@ -44,10 +44,6 @@ function CreateFormForLogin(props){
 
         ctx.users.push({email,password});
         props.setShow(false);
-        if (email === "" || password === "") {
-            alert("Please enter complete information");
-            return
-        }
         const url = `/account/login/${email}/${password}`;
         (async () => {
             var res = await fetch(url);
