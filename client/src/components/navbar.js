@@ -1,3 +1,4 @@
+
 function NavBar(props){
 
     const handleLogout = () => {
@@ -11,25 +12,32 @@ function NavBar(props){
         localStorage.clear();
         window.location.replace("/");
     }
+
+
+    //
+
+
+    //
     console.log(props.user);
     if (props.user === null) {
         return(
-            <nav className="navbar navbar-expand-lg" style={{backgroundColor: "#e3f2fd"}}>
-            <div className="container-fluid">
-                <a className="navbar-brand" href="#">Badbank</a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <a className="navbar-brand" href="#">Badbank</a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarText">
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                            <a className="nav-link" href="/CreateAccount/">Create Account</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/Login/">Login</a>
-                        </li>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarText">
+                <ul className="navbar-nav mr-auto">
+                <li className="nav-item active">
+                    <a className="nav-link" href="/withdraw/">Withdraw<span class="sr-only">(current)</span></a>
+                </li>
+                <li className="nav-item active">
+                    <a className="nav-link" href="/CreateAccount/">Create Account</a>
+                </li>
+                <li className="nav-item active">
+                    <a className="nav-link" href="/Login/">Login</a>
+                </li>
                 </ul>
-                </div>
             </div>
             </nav>
         );        
@@ -39,33 +47,28 @@ function NavBar(props){
     else {
         return(
 
-            <nav className="navbar navbar-expand-lg" style={{backgroundColor: "#e3f2fd"}}>
-                <div className="container-fluid">
-                    <a className="navbar-brand" href="#">Badbank</a>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarText">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                                <a className="nav-link" href="/deposit/">Deposit</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="/withdraw/">Withdraw</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="/alldata/">Transaction History</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#" onClick={handleLogout}>Logout</a>
-                            </li>
-                    </ul>
-                    <span className="navbar-text" style={{textAlign: "right"}}>
-                        Welcome {localStorage.getItem("loggedUser")}
-                    </span>
-                    </div>
-                </div>
-                </nav>
+            <nav className="navbar navbar-expand-lg navbar navbar-light" style={{opacity: "0.8", backgroundColor: "#e3f2fd"}}>
+            <a className="navbar-brand" href="#">Badbank</a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarText">
+                <ul className="navbar-nav mr-auto">
+                <li className="nav-item active">
+                    <a className="nav-link" href="/withdraw/">Withdraw</a>
+                </li>
+                <li className="nav-item active">
+                    <a className="nav-link" href="/alldata/">Transaction History</a>
+                </li>
+                <li className="nav-item active">
+                    <a className="nav-link" onClick={handleLogout}>Logout</a>
+                </li>
+                </ul>
+                <span className="navbar-text">
+                    Welcome {localStorage.getItem("loggedUser")}
+                </span>
+            </div>
+            </nav>
             
             // <nav className="navbar navbar-expand-lg" style={{backgroundColor: "#e3f2fd"}}> 
             //     <div class="container-fluid">

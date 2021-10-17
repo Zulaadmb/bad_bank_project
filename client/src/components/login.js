@@ -6,7 +6,7 @@ function Login(props){
     const [show, setShow]       = React.useState(true);
     const [status, setStatus]   = React.useState('');
     return(<>
-            <div className="card mb-3" style={{maxWidth: "540px", border: "3px ridge", backgroundColor: "#669999"}}>
+            <div className="card mb-3" style={{maxWidth: "540px", border: "3px ridge", backgroundColor: "#669999"}} >
                 <h3>Welcome to Online Banking!</h3>
                 <div className="row g-0">
                     <div className="col-md-4" style={{padding: "20px"}}>
