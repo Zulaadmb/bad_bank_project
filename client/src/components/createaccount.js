@@ -65,12 +65,12 @@ function CreateForm(props){
         .then((res) => {
             console.log(res);
             if (('code' in res) && (res.code === "error")) {
-                // alert("The account is already taken");
+                alert("The account is already taken");
             }
             else {
-                // alert("Account created successfully");
+                alert("Account created successfully");
                 props.setShow(false);
-                window.location.replace("/#/Login");
+                window.location.replace("/Login");
             }
         })           
         
