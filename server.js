@@ -37,15 +37,15 @@ app.get('/account/create/:name/:email/:password', function(req, res) {
 require('./routes/html_routes')(app);
 
 
-app.get('/account/login/:email/:password', function (req, res) {
-    console.log(req.params.email, req.params.password);
-    dal.findOne(req.params.email)
+app.post('/account/login', function (req, res) {
+    console.log(req.body.email, req.body.password);
+    dal.findOne(req.body.email)
     .then((docs) => {
         if (docs.length == 0) {
             res.send({code: "error"})
         }
-        if (docs[0].password == req.params.password) {
-            req.session.loggedIn = req.params.email;
+        if (docs[0].password == req.body.password) {
+            req.session.loggedIn = req.body.email;
             res.send({code: "success"});
         }
         else {

@@ -2,6 +2,7 @@ import { getDefaultNormalizer } from '@testing-library/react';
 import React from 'react';
 import UserContext from 'react';
 import logo from './bank.png';
+import login from '../utils/API';
 
 function Login(props){
     const [show, setShow]       = React.useState(true);
@@ -45,8 +46,13 @@ function CreateFormForLogin(props){
         const url = `/account/login/${email}/${password}`;
         console.log(url);
         (async () => {
-            var res = await fetch(url);
-            console.log(res);
+            const data = {email: email, 
+                     password: password}
+            login(data)
+            .then((res) => {
+                console.log(res);
+            })
+            
             var data = await res.json();
             console.log("Data is ",data);
             if (data.code === "success") {
