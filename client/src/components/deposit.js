@@ -35,14 +35,7 @@ const Account = (props) => {
     getBalance({email: props.user})
     .then((res) => {
       setTotalState(Number(res.data.docs[0].balance));
-    })
-  //   (async () => {
-  //     var res = await fetch(url);
-  //     var data = await res.json();
-  
-  //     setTotalState(Number(data.balance));
-  // })();
-    
+    })    
   }, [props.user]);
 
 

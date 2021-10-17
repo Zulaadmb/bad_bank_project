@@ -41,6 +41,10 @@ function CreateFormForLogin(props){
         window.location.replace("/CreateAccount");
     }
     function handle(){
+        if (email === "" || password === "") {
+            alert("Please enter complete information");
+            return
+        }
         props.setShow(false);
         
         const data = {email: email, 

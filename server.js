@@ -98,8 +98,7 @@ app.post('/account/deposit', function (req, res) {
 app.post('/account/withdraw', function (req, res) {
     console.log(req.session);
     dal.updateOne(req.body.user, req.body.balance)
-    const now = new Date();
-    dal.createHistory(now, req.body.user, req.body.balance, "withdraw")
+    dal.createHistory(new Date(), req.body.user, req.body.balance, "withdraw")
     .then((docs) => {
         res.send({code: "success"})
     })

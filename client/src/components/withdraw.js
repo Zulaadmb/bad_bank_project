@@ -41,7 +41,6 @@ const ATMWithraw = ({ onChange }) => {
         withrawFund(data)
         .then((res) => {
           console.log("Fund withdraw successful ", res.data);
-          setTotalState(Number(res.data.balance));
         })
         // (async () => {
         //     var res = await fetch(url);
@@ -62,13 +61,6 @@ const ATMWithraw = ({ onChange }) => {
       .then((res) => {
         setTotalState(Number(res.data.docs[0].balance));
       })
-    //   (async () => {
-    //     var res = await fetch(url);
-    //     var data = await res.json();
-    
-    //     setTotalState(Number(data.balance));
-    // })();
-      
     }, [props.user]);
   
   
