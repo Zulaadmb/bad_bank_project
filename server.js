@@ -8,6 +8,10 @@ const port = process.env.PORT || 8080;
 
 var bodyParser = require('body-parser')
 
+var jsonParser = bodyParser.json()
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
 //used to serve static files from public directory
 app.use(express.static("client/build"));
 app.use(cors());
@@ -34,8 +38,9 @@ app.get('/account/create/:name/:email/:password', function(req, res) {
     })
 });
 
-app.post('/account/login', function (req, res) {
+app.post('/account/login', urlencodedParser, function (req, res) {
     console.log(req.body.email, req.body.password);
+    console.log(req.body);
     dal.findOne(req.body.email)
     .then((docs) => {
         if (docs.length == 0) {
