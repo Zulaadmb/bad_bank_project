@@ -33,7 +33,7 @@ app.post('/account/create', function(req, res) {
     dal.findOne(req.body.email)
     .then((docs) => {
         if (docs.length == 0) {
-            dal.create(req.body.user, req.body.email, req.body.password).
+            dal.create(req.body.name, req.body.email, req.body.password).
             then((user) => {
                 console.log(user);
                 res.send(user);
