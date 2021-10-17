@@ -12,17 +12,19 @@ var jsonParser = bodyParser.json()
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({
+    extended: true
+  }));
+
 app.use(express.static("client/build"));
 app.use(cors());
 app.use(session({secret:'9a22dad3bd3f6a74c258586b1538480db3978bbb'
                     ,name:'9a22dad3bd3f6a74c258586b1538480db3978bbb'
                     ,saveUninitialized:false}))
 
-app.use(bodyParser.json());
 
-app.use(bodyParser.urlencoded({
-    extended: true
-  }));
 
 //create user account
 app.get('/account/create/:name/:email/:password', function(req, res) {
