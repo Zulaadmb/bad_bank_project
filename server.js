@@ -4,7 +4,7 @@ var cors    =   require('cors');
 var dal     =   require('./dal.js');
 const session = require('express-session')
 const path = require('path');
-const PORT = process.env.port || 8080;
+const port = process.env.PORT || 8080;
 
 var bodyParser = require('body-parser')
 
@@ -96,5 +96,5 @@ app.get('/account/all/:email', function(req, res) {
         });
 });
 
-app.listen(PORT);
-console.log('Running on port: ' + PORT);
+app.listen(port);
+console.log('Running on port: ' + port);
