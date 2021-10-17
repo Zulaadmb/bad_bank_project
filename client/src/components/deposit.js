@@ -34,10 +34,7 @@ const Account = (props) => {
     // const url = `/account/balance/${props.user}`;
     getBalance({email: props.user})
     .then((res) => {
-      console.log("Balance query successful for ", props.user);
-      console.log("Balance query successful ", res.data);
-
-      // setTotalState(Number(res.docs[0].balance));
+      setTotalState(Number(res.data.docs[0].balance));
     })
   //   (async () => {
   //     var res = await fetch(url);

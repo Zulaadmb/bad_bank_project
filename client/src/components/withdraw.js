@@ -60,7 +60,7 @@ const ATMWithraw = ({ onChange }) => {
       // const url = `/account/balance/${props.user}`;
       getBalance({email: props.user})
       .then((res) => {
-        console.log("Balance query successful for ", props.user);
+        setTotalState(Number(res.data.docs[0].balance));
       })
     //   (async () => {
     //     var res = await fetch(url);
