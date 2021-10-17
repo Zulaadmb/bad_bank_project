@@ -30,11 +30,11 @@ const Account = (props) => {
     if (props.user === undefined) {
       return 
     }
-    const data = {user: props.user};
+    // const data = {user: props.user};
     // const url = `/account/balance/${props.user}`;
-    getBalance(data)
+    getBalance(props.user)
     .then((res) => {
-      console.log("Balance query successful for ", data.user);
+      console.log("Balance query successful for ", props.user);
     })
   //   (async () => {
   //     var res = await fetch(url);

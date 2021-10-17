@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
 import React from 'react';
 import logo from './bank.png';
-import {withrawFund} from '../utils/API';
+import {withrawFund, getBalance} from '../utils/API';
 
 
 const ATMWithraw = ({ onChange }) => {
@@ -52,15 +52,25 @@ const ATMWithraw = ({ onChange }) => {
     };
   
     React.useEffect(() => { 
-      const url = `/account/balance/${props.user}`;
-      (async () => {
-        var res = await fetch(url);
-        var data = await res.json();
     
-        setTotalState(Number(data.balance));
-    })();
+      if (props.user === undefined) {
+        return 
+      }
+      // const data = {user: props.user};
+      // const url = `/account/balance/${props.user}`;
+      getBalance(props.user)
+      .then((res) => {
+        console.log("Balance query successful for ", props.user);
+      })
+    //   (async () => {
+    //     var res = await fetch(url);
+    //     var data = await res.json();
+    
+    //     setTotalState(Number(data.balance));
+    // })();
       
     }, [props.user]);
+  
   
     return (
         <div className="card mb-3" style={{maxWidth: "540px", border: "3px ridge", backgroundColor: "#669999"}}>
