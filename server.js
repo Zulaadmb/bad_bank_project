@@ -83,7 +83,7 @@ app.get('/account/balance/:email', function (req, res) {
     dal.findOne(req.params.email)
     .then((docs) => {
         console.log(docs);
-        res.send({ balance: docs[0].balance});
+        res.send({ docs: docs});
     })
 });
 
