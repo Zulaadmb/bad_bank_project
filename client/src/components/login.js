@@ -45,6 +45,7 @@ function CreateFormForLogin(props){
         const url = `/account/login/${email}/${password}`;
         (async () => {
             var res = await fetch(url);
+            console.log(res);
             var data = await res.json();
             console.log("Data is ",data);
             if (data.code === "success") {
