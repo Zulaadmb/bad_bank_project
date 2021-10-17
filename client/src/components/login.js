@@ -45,7 +45,9 @@ function CreateFormForLogin(props){
         
         const data = {email: email, 
                     password: password}
-        login(data)
+        console.log(data);
+        
+        login(data)  
         .then((res) => {
             console.log(res);
             if (data.code === "success") {
