@@ -43,6 +43,7 @@ function CreateFormForLogin(props){
         props.setShow(false);
         
         const url = `/account/login/${email}/${password}`;
+        console.log(url);
         (async () => {
             var res = await fetch(url);
             console.log(res);
