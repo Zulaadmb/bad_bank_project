@@ -41,9 +41,12 @@ const Account = (props) => {
   };
 
   React.useEffect(() => { 
+    
+    
     if (props.user === undefined) {
       return 
     }
+
     const url = `/account/balance/${props.user}`;
     (async () => {
       var res = await fetch(url);
