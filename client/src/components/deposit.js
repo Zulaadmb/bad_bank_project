@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom";
 import React from 'react';
 import logo from './bank.png';
+import {depositFund} from '../utils/API';
 
 const ATMDeposit = ({ onChange }) => {
   return (
@@ -30,13 +31,18 @@ const Account = (props) => {
   const handleSubmit = (event) => {
     setTotalState(totalState + transactionState);
     event.preventDefault();
-    const url = `/account/deposit/${props.user}/${totalState + transactionState}`;
-    
-    (async () => {
-      var res = await fetch(url);
-      var data = await res.json();
-      console.log(data);
-  })();
+    // const url = `/account/deposit/${props.user}/${totalState + transactionState}`;
+    const data = {user: props.user, balance: totalState + transactionState};
+    depositFund(data)
+    .then((res) => {
+      console.log("Successfully updated the balance");
+    })
+
+  //   (async () => {
+  //     var res = await fetch(url);
+  //     var data = await res.json();
+  //     console.log(data);
+  // })();
   transactionState = 0;
   };
 

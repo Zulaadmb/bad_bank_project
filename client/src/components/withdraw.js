@@ -1,6 +1,8 @@
 import ReactDOM from "react-dom";
 import React from 'react';
 import logo from './bank.png';
+import withrawFund from '../utils/API';
+
 
 const ATMWithraw = ({ onChange }) => {
     return (
@@ -36,11 +38,16 @@ const ATMWithraw = ({ onChange }) => {
         setTotalState(totalState - transactionState);
         event.preventDefault();
         const url = `/account/withdraw/${props.user}/${totalState - transactionState}`;
-        (async () => {
-            var res = await fetch(url);
-            var data = await res.json();
-            console.log(data);
-        })();
+        const data = {user: props.user, balance: totalState - transactionState};
+        withrawFund(data)
+        .then((res) => {
+          console.log("Fund withdraw successful");
+        })
+        // (async () => {
+        //     var res = await fetch(url);
+        //     var data = await res.json();
+        //     console.log(data);
+        // })();
     }
     };
   

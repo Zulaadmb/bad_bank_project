@@ -86,18 +86,17 @@ app.get('/account/balance/:email', function (req, res) {
     })
 });
 
-app.get('/account/deposit/:email/:value', function (req, res) {
-    console.log(req.session);
-    dal.updateOne(req.params.email, req.params.value)
-    dal.createHistory(new Date(), req.params.email, req.params.value, "deposit");
-
+app.post('/account/deposit', function (req, res) {
+    console.log(req.body);
+    dal.updateOne(req.body.user, req.body.balance)
+    dal.createHistory(new Date(), req.params.user, req.body.balance, "deposit");
 });
 
-app.get('/account/withdraw/:email/:value', function (req, res) {
+app.post('/account/withdraw', function (req, res) {
     console.log(req.session);
-    dal.updateOne(req.params.email, req.params.value)
+    dal.updateOne(req.body.user, req.body.balance)
     const now = new Date();
-    dal.createHistory(now, req.params.email, req.params.value, "withdraw");
+    dal.createHistory(now, req.body.user, req.body.balance, "withdraw");
 });
 
 
