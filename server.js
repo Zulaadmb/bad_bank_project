@@ -66,8 +66,6 @@ app.post('/account/login', urlencodedParser, function (req, res) {
     })
 });
 
-require('./routes/html_routes')(app);
-
 app.get('/account/logout', function (req, res) {
     console.log(req.session);
     req.session.loggedIn = undefined;
@@ -118,6 +116,8 @@ app.get('/account/all/:email', function(req, res) {
             res.send(JSON.stringify(docs));
         });
 });
+
+require('./routes/html_routes')(app);
 
 app.listen(port);
 console.log('Running on port: ' + port);
