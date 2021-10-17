@@ -8,7 +8,7 @@ function Login(props){
     const [status, setStatus]   = React.useState('');
     return(<>
             <div className="card mb-3" style={{maxWidth: "540px", border: "3px ridge", backgroundColor: "#669999"}}>
-                <h3>Welcome to Online Banking!</h3>
+                <h3>Welc2ome to Online Banking!</h3>
                 <div className="row g-0">
                     <div className="col-md-4" style={{padding: "20px"}}>
                     <img src={logo} className="img-fluid" alt="Responsive image" style={{marginLeft: "20px"}}></img>
@@ -40,14 +40,11 @@ function CreateFormForLogin(props){
     function createAccount() {
         window.location.replace("/CreateAccount");
     }
-    function handleLogin(){
+    function handle(){
         console.log(email,password);
-        if (email === "" || password === "") {
-            alert("Please enter complete information");
-            return
-        }
         ctx.users.push({email,password});
         props.setShow(false);
+        
         const url = `/account/login/${email}/${password}`;
         (async () => {
             var res = await fetch(url);
@@ -59,7 +56,7 @@ function CreateFormForLogin(props){
             }
             else {
                 alert("Login unsuccessful");
-                window.location.replace("/CreateAccount/");
+                window.location.replace("/CreateAccount");
             }
 
         })();
@@ -81,7 +78,7 @@ function CreateFormForLogin(props){
             onChange={e => setPassword(e.currentTarget.value)}/><br/>
         <button type="button"
             className="btn btn-primary"
-            onClick={handleLogin} style={{margin: "5px"}}>Login</button>
+            onClick={handle} style={{margin: "5px"}}>Login</button>
 
         <button type="button"
             className="btn btn-primary"
