@@ -41,8 +41,7 @@ function CreateFormForLogin(props){
         window.location.replace("/CreateAccount");
     }
     function handle(){
-        console.log(email,password);
-        ctx.users.push({email,password});
+        // ctx.users.push({email,password});
         props.setShow(false);
         
         const url = `/account/login/${email}/${password}`;
