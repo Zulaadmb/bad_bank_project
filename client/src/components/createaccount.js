@@ -64,7 +64,7 @@ function CreateForm(props){
         signup(data)
         .then((res) => {
             console.log(res);
-            if (('code' in res) && (res.code === "error")) {
+            if (('code' in res.data) && (res.data.code === "error")) {
                 alert("The account is already taken");
             }
             else {
