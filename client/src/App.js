@@ -28,7 +28,7 @@ export default function App (){
     
     
   return ( //<NavBar/>
-    <div className='App' style={{ backgroundImage: `url(${background})`, position: 'absolute', left: '50%', top: '60%', transform: 'translate(-50%, -70%)', width: '80%', height: '80%', fontFamily: "Alfa Slab One"}}>
+    <div className='App' style={{ backgroundImage: `url(${background})`, position: 'absolute', left: '50%', top: '60%', transform: 'translate(-50%, -70%)', width: '80%', height: '80%', fontFamily: "IM Fell English SC"}}>
       <Router>
       
            <NavBar user={user} setUser={setUser}/>

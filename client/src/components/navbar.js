@@ -1,4 +1,4 @@
-
+import baseStyling from './nav.css';
 function NavBar(props){
 
     const handleLogout = () => {
@@ -29,9 +29,6 @@ function NavBar(props){
             <div className="collapse navbar-collapse" id="navbarText">
                 <ul className="navbar-nav mr-auto">
                 <li className="nav-item active">
-                    <a className="nav-link" href="/withdraw/">Withdraw<span class="sr-only">(current)</span></a>
-                </li>
-                <li className="nav-item active">
                     <a className="nav-link" href="/CreateAccount/">Create Account</a>
                 </li>
                 <li className="nav-item active">
@@ -54,6 +51,9 @@ function NavBar(props){
             </button>
             <div className="collapse navbar-collapse" id="navbarText">
                 <ul className="navbar-nav mr-auto">
+                <li className="nav-item active">
+                    <a className="nav-link" href="/deposit/">Deposit</a>
+                </li>
                 <li className="nav-item active">
                     <a className="nav-link" href="/withdraw/">Withdraw</a>
                 </li>
