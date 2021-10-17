@@ -34,9 +34,8 @@ app.get('/account/create/:name/:email/:password', function(req, res) {
     })
 });
 
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(process.cwd(), 'client/build/index.html'));
-});
+require('./routes/html_routes')(app);
+
 
 app.get('/account/login/:email/:password', function (req, res) {
     console.log(req.params.email, req.params.password);
