@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './bank.png';
+import {signup} from '../utils/API';
 
 function CreateAccount(){
     //setShow is createForm, createMsg
@@ -53,20 +54,25 @@ function CreateForm(props){
             alert("Please enter complete information");
             return
         }
-        const url = `/account/create/${name}/${email}/${password}`;
-        (async () => {
-            var res = await fetch(url);
-            console.log(res);
-            var data = await res.json();
-            if (('code' in data) && (data.code === "error")) {
-                alert("The account is already taken");
+        // const url = `/account/create/${name}/${email}/${password}`;
+        const data = {
+                      name: name, 
+                      email: email, 
+                      password: password
+                    }
+
+        signup(data)
+        .then((res) => {
+            var resdata = res.json();
+            if (('code' in resdata) && (resdata.code === "error")) {
+                // alert("The account is already taken");
             }
             else {
-                alert("Account created successfully")
+                // alert("Account created successfully");
                 props.setShow(false);
                 window.location.replace("/#/Login");
             }
-        })();
+        })           
         
         // ctx.users.push({name,email,password});
         // props.setShow(false);

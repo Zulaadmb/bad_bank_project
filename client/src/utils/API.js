@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const login = data => axios.post("/account/login", data);
-export const signup = data => axios.post("/api/sign_up", data);
+export const signup = data => axios.post("/account/create", data);
 export const posting = data => axios.post("/api/post", data);
 export const deletePost = id => axios.delete("/api/post/" + id);
 export const getPublicPosts = () => axios.get("/api/posts");

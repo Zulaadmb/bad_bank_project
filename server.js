@@ -27,13 +27,13 @@ app.use(session({secret:'9a22dad3bd3f6a74c258586b1538480db3978bbb'
 
 
 //create user account
-app.get('/account/create/:name/:email/:password', function(req, res) {
+app.post('/account/create', function(req, res) {
     console.log(req);
     // check if user exists already 
-    dal.findOne(req.params.email)
+    dal.findOne(req.body.email)
     .then((docs) => {
         if (docs.length == 0) {
-            dal.create(req.params.user, req.params.email, req.params.password).
+            dal.create(req.body.user, req.body.email, req.body.password).
             then((user) => {
                 console.log(user);
                 res.send(user);
