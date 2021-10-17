@@ -8,6 +8,7 @@ function NavBar(props){
           var data = await res.json();
           console.log(data);
       })();
+        localStorage.clear();
         window.location.replace("/");
     }
     console.log(props.user);
@@ -42,16 +43,16 @@ function NavBar(props){
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <a className="nav-link" href="#/deposit/">Deposit</a>
+                            <a className="nav-link" href="/deposit/">Deposit</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#/withdraw/">Withdraw</a>
+                            <a className="nav-link" href="/withdraw/">Withdraw</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#/balance/">Balance</a>
+                            <a className="nav-link" href="/balance/">Balance</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#/alldata/">AllData</a>
+                            <a className="nav-link" href="/alldata/">AllData</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#" onClick={handleLogout}>Logout</a>

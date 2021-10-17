@@ -52,7 +52,8 @@ function CreateFormForLogin(props){
             console.log(res);
             if (res.data.code === "success") {
                 props.setUser(email);
-                // window.location.replace("/deposit");
+                localStorage.setItem("loggedUser", email);
+                window.location.replace("/deposit");
             }
             else {
                 alert("Login unsuccessful");

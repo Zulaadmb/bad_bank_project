@@ -16,9 +16,13 @@ export default function App (){
       const url = `/account/info`;
       getUserInfo()
       .then((res) => {
-        setUser(res.data.user);
+        // setUser(res.data.user);
+        const email = localStorage.getItem("loggedUser");
+        setUser(user);
       })
     }, []);
+
+
   
   return ( //<NavBar/>
     <div className='App'>
