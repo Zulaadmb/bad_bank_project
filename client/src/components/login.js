@@ -49,7 +49,7 @@ function CreateFormForLogin(props){
         (async () => {
             var res = await fetch(url);
             var data = await res.json();
-            console.log(data);
+            console.log("Data is ",data);
             if (data.code === "success") {
                 props.setUser(email);
                 window.location.replace("/deposit");
