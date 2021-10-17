@@ -89,7 +89,7 @@ app.post('/account/balance', function (req, res) {
 app.post('/account/deposit', function (req, res) {
     console.log(req.body);
     dal.updateOne(req.body.user, req.body.balance)
-    dal.createHistory(new Date(), req.params.user, req.body.balance, "deposit")
+    dal.createHistory(new Date(), req.body.user, req.body.balance, "deposit")
     .then((docs) => {
         res.send({code: "success"})
     })

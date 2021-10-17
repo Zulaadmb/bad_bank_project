@@ -26,7 +26,7 @@ export default function App (){
 
   
   return ( //<NavBar/>
-    <div className='App'>
+    <div className='App' style={{backgroundImage: "./components/background.jpeg"}}>
       <Router>
       
            <NavBar user={user} setUser={setUser}/>
