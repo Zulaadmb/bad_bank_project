@@ -4,6 +4,7 @@ export const login = data => axios.post("/account/login", data);
 export const signup = data => axios.post("/account/create", data);
 export const depositFund = data => axios.post("/account/deposit", data);
 export const  withrawFund = data => axios.post("/account/withdraw", data);
+export const getBalance = data => axios.get("/account/balance", data);
 export const deletePost = id => axios.delete("/api/post/" + id);
 export const getUserInfo = () => axios.get("/account/info");
 export const userPublicPosts = nickname => axios.get("/api/posts/public/" + nickname);

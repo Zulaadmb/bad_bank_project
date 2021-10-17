@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
 import React from 'react';
 import logo from './bank.png';
-import {depositFund} from '../utils/API';
+import {depositFund, getBalance} from '../utils/API';
 
 const ATMDeposit = ({ onChange }) => {
   return (
@@ -24,6 +24,28 @@ const Account = (props) => {
   let transactionState = 0; // state of this transaction
   let status = `Current Balance:  $${totalState}`;
   console.log("Render Account");
+
+  React.useEffect(() => { 
+    
+    if (props.user === undefined) {
+      return 
+    }
+    const data = {user: props.user};
+    // const url = `/account/balance/${props.user}`;
+    getBalance(data)
+    .then((res) => {
+      console.log("Balance query successful for ", data.user);
+    })
+  //   (async () => {
+  //     var res = await fetch(url);
+  //     var data = await res.json();
+  
+  //     setTotalState(Number(data.balance));
+  // })();
+    
+  }, [props.user]);
+
+
   const handleChange = event => {
     console.log(`handleChange ${event.target.value}`);
     transactionState = Number(event.target.value);
@@ -45,22 +67,6 @@ const Account = (props) => {
   // })();
   transactionState = 0;
   };
-
-  React.useEffect(() => { 
-    
-    if (props.user === undefined) {
-      return 
-    }
-
-    const url = `/account/balance/${props.user}`;
-    (async () => {
-      var res = await fetch(url);
-      var data = await res.json();
-  
-      setTotalState(Number(data.balance));
-  })();
-    
-  }, [props.user]);
 
   return (
     <div className="card mb-3" style={{maxWidth: "540px", border: "3px ridge", backgroundColor: "#669999"}}>
