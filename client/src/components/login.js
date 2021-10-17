@@ -1,6 +1,4 @@
-import { getDefaultNormalizer } from '@testing-library/react';
 import React from 'react';
-import UserContext from 'react';
 import logo from './bank.png';
 import {login} from '../utils/API';
 

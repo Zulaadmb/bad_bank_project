@@ -1,6 +1,5 @@
 import React from 'react';
 import Card from './Card';
-import UserContext  from 'react';
 
 function Balance(){
     const [show, setShow]       = React.useState(true);

@@ -5,9 +5,9 @@ import CreateAccount from '../src/components/createaccount';
 import AllData from '../src/components/alldata';
 import Account from '../src/components/deposit';
 import AccountWithdraw from '../src/components/withdraw';
-import Balance from '../src/components/balance';
 import { BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 import {getUserInfo} from '../src/utils/API';
+import background from './components/background.jpeg';
 
 export default function App (){
   const [user, setUser] = React.useState();
@@ -26,7 +26,7 @@ export default function App (){
 
   
   return ( //<NavBar/>
-    <div className='App' style={{backgroundImage: "./components/background.jpeg"}}>
+    <div className='App' style={{ backgroundImage: `url(${background})` }}>
       <Router>
       
            <NavBar user={user} setUser={setUser}/>
