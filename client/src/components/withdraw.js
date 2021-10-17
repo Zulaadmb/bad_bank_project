@@ -3,7 +3,6 @@ import React from 'react';
 import logo from './bank.png';
 import {withrawFund, getBalance} from '../utils/API';
 
-
 const ATMWithraw = ({ onChange }) => {
     return (
       <label className="label huge"><br></br>
@@ -42,6 +41,7 @@ const ATMWithraw = ({ onChange }) => {
         withrawFund(data)
         .then((res) => {
           console.log("Fund withdraw successful");
+          setTotalState(Number(res.data.balance));
         })
         // (async () => {
         //     var res = await fetch(url);
