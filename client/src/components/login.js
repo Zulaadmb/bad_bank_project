@@ -5,6 +5,7 @@ import logo from './bank.png';
 
 function Login(props){
     const [show, setShow]       = React.useState(true);
+    const [status, setStatus]   = React.useState('');
     return(<>
             <div className="card mb-3" style={{maxWidth: "540px", border: "3px ridge", backgroundColor: "#669999"}}>
                 <h3>Welcome to Online Banking!</h3>
@@ -45,7 +46,7 @@ function CreateFormForLogin(props){
             alert("Please enter complete information");
             return
         }
-        // ctx.users.push({email,password});
+        ctx.users.push({email,password});
         props.setShow(false);
         const url = `/account/login/${email}/${password}`;
         (async () => {
