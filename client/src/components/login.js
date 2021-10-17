@@ -41,7 +41,6 @@ function CreateFormForLogin(props){
     }
     function handleLogin(){
         console.log(email,password);
-
         ctx.users.push({email,password});
         props.setShow(false);
         const url = `/account/login/${email}/${password}`;
