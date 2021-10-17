@@ -39,7 +39,7 @@ export default function App (){
                   <Route path="/login" component={() => <Login setUser={setUser} />}  />
                   <Route path="/Deposit/" component={() => <Account user={user} />}/>
                   <Route path="/Withdraw/" component={() => <AccountWithdraw user={user} />}/>
-                  <Route path="/Balance/" component={Balance} />
+                  {/* <Route path="/Balance/" component={Balance} /> */}
                 </Switch>
               </div>
       
