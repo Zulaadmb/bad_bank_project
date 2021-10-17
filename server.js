@@ -34,9 +34,7 @@ app.post('/account/create', function(req, res) {
     dal.findOne(req.body.email)
     .then((docs) => {
         if (docs.length == 0) {
-            const salt = bcrypt.genSalt(10);
-            const passhash = bcrypt.hash(req.body.password, salt);
-            dal.create(req.body.name, req.body.email, passhash).
+            dal.create(req.body.name, req.body.email, req.body.password).
             then((user) => {
                 console.log(user);
                 res.send(user);
@@ -58,8 +56,7 @@ app.post('/account/login', urlencodedParser, function (req, res) {
             res.send({code: "error"})
         }
         console.log(docs[0].password, req.body.password);
-        const validPassword = bcrypt.compare(req.body.password, docs[0].password);
-        if (validPassword) {
+        if (docs[0].password === req.body.password) {
             req.session.loggedIn = req.body.email;
             res.send({code: "success"});
         }
