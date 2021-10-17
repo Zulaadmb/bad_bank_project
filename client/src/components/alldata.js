@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {getAllHistory} from '../utils/API';
 
 function AllData(props){
     // const ctx = React.useContext(UserContext);

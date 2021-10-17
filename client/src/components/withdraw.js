@@ -36,7 +36,6 @@ const ATMWithraw = ({ onChange }) => {
       else {
         setTotalState(totalState - transactionState);
         event.preventDefault();
-        const url = `/account/withdraw/${props.user}/${totalState - transactionState}`;
         const data = {user: props.user, balance: totalState - transactionState};
         withrawFund(data)
         .then((res) => {
