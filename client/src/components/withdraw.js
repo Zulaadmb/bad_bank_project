@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
 import React from 'react';
 import logo from './bank.png';
-import withrawFund from '../utils/API';
+import {withrawFund} from '../utils/API';
 
 
 const ATMWithraw = ({ onChange }) => {
