@@ -43,18 +43,11 @@ function CreateFormForLogin(props){
     function handle(){
         props.setShow(false);
         
-        const url = `/account/login/${email}/${password}`;
-        console.log(url);
-        (async () => {
-            const data = {email: email, 
-                     password: password}
-            login(data)
-            .then((res) => {
-                console.log(res);
-            })
-            
-            var data = await res.json();
-            console.log("Data is ",data);
+        const data = {email: email, 
+                    password: password}
+        login(data)
+        .then((res) => {
+            console.log(res);
             if (data.code === "success") {
                 props.setUser(email);
                 window.location.replace("/deposit");
@@ -63,8 +56,7 @@ function CreateFormForLogin(props){
                 alert("Login unsuccessful");
                 window.location.replace("/CreateAccount");
             }
-
-        })();
+        })
     }
 
     return (<>
