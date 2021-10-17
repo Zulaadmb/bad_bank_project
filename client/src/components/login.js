@@ -52,7 +52,7 @@ function CreateFormForLogin(props){
             console.log(res);
             if (res.data.code === "success") {
                 props.setUser(email);
-                window.location.replace("/deposit");
+                // window.location.replace("/deposit");
             }
             else {
                 alert("Login unsuccessful");
