@@ -12,7 +12,7 @@ function NavBar(props){
         window.location.replace("/");
     }
     console.log(props.user);
-    if (props.user === undefined) {
+    if (props.user === null) {
         return(
             <nav className="navbar navbar-expand-lg" style={{backgroundColor: "#e3f2fd"}}>
                 <a className="navbar-brand" href="#">BadBank</a>
