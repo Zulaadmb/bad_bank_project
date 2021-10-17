@@ -21,7 +21,7 @@ As a bank customer, I want to be able to check my balance and transaction histor
 - React
 - Express
 - Node.js
-- MongoDB
+- MongoDB Atlas
 - axios
 - Boostrap
 
