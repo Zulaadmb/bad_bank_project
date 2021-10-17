@@ -35,13 +35,11 @@ function Login(props){
 function CreateFormForLogin(props){
     const [email, setEmail]         = React.useState('');
     const [password, setPassword]   = React.useState('');
-   const ctx = React.useContext(UserContext);
 
     function createAccount() {
         window.location.replace("/CreateAccount");
     }
     function handle(){
-        // ctx.users.push({email,password});
         props.setShow(false);
         
         const url = `/account/login/${email}/${password}`;
