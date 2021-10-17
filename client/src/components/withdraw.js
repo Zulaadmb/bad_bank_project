@@ -58,7 +58,7 @@ const ATMWithraw = ({ onChange }) => {
       }
       // const data = {user: props.user};
       // const url = `/account/balance/${props.user}`;
-      getBalance(props.user)
+      getBalance({email: props.user})
       .then((res) => {
         console.log("Balance query successful for ", props.user);
       })

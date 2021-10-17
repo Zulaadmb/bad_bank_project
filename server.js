@@ -77,9 +77,9 @@ app.get('/account/info', function(req, res) {
     res.send({user: req.session.loggedIn})
 });
 
-app.get('/account/balance/:email', function (req, res) {
-    console.log(req.params);
-    dal.findOne(req.params.email)
+app.post('/account/balance', function (req, res) {
+    console.log(req.body);
+    dal.findOne(req.body.email)
     .then((docs) => {
         console.log(docs);
         res.send({ docs: docs});
