@@ -18,7 +18,8 @@ export default function App (){
       .then((res) => {
         // setUser(res.data.user);
         const email = localStorage.getItem("loggedUser");
-        setUser(user);
+        setUser(email);
+        console.log("User set to ", user);
       })
     }, []);
 
