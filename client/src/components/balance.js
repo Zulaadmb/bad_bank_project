@@ -21,7 +21,6 @@ function CreateFormForBalance(props){
     // const ctx = React.useContext(UserContext);
 
     function handle(){
-        console.log(email);
         // ctx.users.push({email});
         props.setShow(false);
     }

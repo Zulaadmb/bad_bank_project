@@ -28,14 +28,12 @@ app.use(session({secret:'9a22dad3bd3f6a74c258586b1538480db3978bbb'
 
 //create user account
 app.post('/account/create', function(req, res) {
-    console.log(req);
     // check if user exists already 
     dal.findOne(req.body.email)
     .then((docs) => {
         if (docs.length == 0) {
             dal.create(req.body.name, req.body.email, req.body.password).
             then((user) => {
-                console.log(user);
                 res.send(user);
             });
         }
@@ -48,11 +46,9 @@ app.post('/account/create', function(req, res) {
 app.post('/account/login', urlencodedParser, function (req, res) {
     dal.findOne(req.body.email)
     .then((docs) => {
-        console.log(docs);
         if (docs.length == 0) {
             res.send({code: "error"})
         }
-        console.log(docs[0].password, req.body.password);
         if (docs[0].password === req.body.password) {
             req.session.loggedIn = req.body.email;
             res.send("success");
@@ -76,7 +72,6 @@ app.get('/account/info', function(req, res) {
 app.post('/account/balance', function (req, res) {
     dal.findOne(req.body.email)
     .then((docs) => {
-        console.log(docs);
         res.send({ docs: docs});
     })
 });
@@ -105,8 +100,6 @@ app.get('/account/all/:email', function(req, res) {
 
     dal.allHistory(req.params.email).
         then((docs) => {
-            console.log(docs);
-
             res.send(JSON.stringify(docs));
         });
 });

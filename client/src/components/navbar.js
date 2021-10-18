@@ -7,13 +7,11 @@ function NavBar(props){
         (async () => {
           var res = await fetch(url);
           var data = await res.json();
-          console.log(data);
       })();
         localStorage.clear();
         window.location.replace("/");
     }
 
-    console.log(props.user);
     if (props.user === null || props.user === undefined) {
         return(
             <nav className="navbar navbar-expand-lg navbar-light bg-light">

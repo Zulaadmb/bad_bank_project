@@ -40,7 +40,6 @@ function CreateForm(props){
     //const ctx = React.useContext(UserContext);
 
     function handle(){
-        console.log(name,email,password);
         if (name.trim() === "" || email.trim() === "" || password.trim() === "") {
             alert("Please enter complete information");
             return
@@ -53,7 +52,6 @@ function CreateForm(props){
 
         signup(data)
         .then((res) => {
-            console.log(res);
             if (('code' in res.data) && (res.data.code === "error")) {
                 alert("The account is already taken");
             }

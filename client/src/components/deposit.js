@@ -16,11 +16,9 @@ const ATMDeposit = ({ onChange }) => {
 };
 
 const Account = (props) => {
-  console.log(props.user);
   const [totalState, setTotalState] = React.useState(0);
   let transactionState = 0; // state of this transaction
   let status = `Current Balance:  $${totalState}`;
-  console.log("Render Account");
 
   React.useEffect(() => { 
     
@@ -36,7 +34,6 @@ const Account = (props) => {
 
 
   const handleChange = event => {
-    console.log(`handleChange ${event.target.value}`);
     transactionState = Number(event.target.value);
   };
   const handleSubmit = (event) => {
