@@ -25,7 +25,7 @@ app.use(session({secret:'9a22dad3bd3f6a74c258586b1538480db3978bbb'
                     ,name:'9a22dad3bd3f6a74c258586b1538480db3978bbb'
                     ,saveUninitialized:false}))
 
-
+require('./routes/html_routes')(app);
 
 //create user account
 app.post('/account/create', function(req, res) {
@@ -127,8 +127,6 @@ app.get('/account/all/:email', function(req, res) {
             res.send(JSON.stringify(docs));
         });
 });
-
-require('./routes/html_routes')(app);
 
 app.listen(port);
 console.log('Running on port: ' + port);

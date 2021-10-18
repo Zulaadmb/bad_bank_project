@@ -46,7 +46,7 @@ function CreateFormForLogin(props){
         .then((res) => {
             console.log(res.data);
 
-            if (res.data.code === "success") {
+            if (res.data === "success") {
                 props.setUser(email);
                 localStorage.clear();
                 localStorage.setItem("loggedUser", email);
