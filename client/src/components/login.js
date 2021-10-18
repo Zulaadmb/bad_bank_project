@@ -45,14 +45,16 @@ function CreateFormForLogin(props){
         login(data)  
         .then((res) => {
             console.log(res.data);
+
             if (res.data.code === "success") {
                 props.setUser(email);
+                localStorage.clear();
                 localStorage.setItem("loggedUser", email);
-                window.location.replace("/deposit");
+                // window.location.replace("/deposit");
             }
             else {
                 alert("Login unsuccessful");
-                window.location.replace("/CreateAccount");
+                // window.location.replace("/CreateAccount");
             }
         })
     }
