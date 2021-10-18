@@ -65,15 +65,12 @@ const ATMWithraw = ({ onChange }) => {
             <div className="card-body">
             <form onSubmit={handleSubmit}>
                 <h2 id="total">{status}</h2>
-                <ATMWithraw onChange={handleChange}> Deposit</ATMWithraw>
+                <ATMWithraw onChange={handleChange}> Withdraw</ATMWithraw>
             </form>
             </div>
             </div>
         </div>
         </div>
-
-
-
     );
   };
   // ========================================
