@@ -47,9 +47,6 @@ app.post('/account/create', function(req, res) {
 });
 
 app.post('/account/login', urlencodedParser, function (req, res) {
-    if (req.session.loggedIn) {
-        res.redirect("/account/deposit")
-    }
     dal.findOne(req.body.email)
     .then((docs) => {
         console.log(docs);
@@ -74,16 +71,10 @@ app.get('/account/logout', function (req, res) {
 });
 
 app.get('/account/info', function(req, res) {
-    if (!req.session.loggedIn) {
-        res.redirect("/account/login")
-    }
     res.send({user: req.session.loggedIn})
 });
 
 app.post('/account/balance', function (req, res) {
-    if (!req.session.loggedIn) {
-        res.redirect("/account/login")
-    }
     dal.findOne(req.body.email)
     .then((docs) => {
         console.log(docs);
@@ -92,9 +83,6 @@ app.post('/account/balance', function (req, res) {
 });
 
 app.post('/account/deposit', function (req, res) {
-    if (!req.session.loggedIn) {
-        res.redirect("/account/login")
-    }
     dal.updateOne(req.body.user, req.body.balance)
     dal.createHistory(new Date(), req.body.user, req.body.balance, "deposit")
     .then((docs) => {
@@ -103,9 +91,7 @@ app.post('/account/deposit', function (req, res) {
 });
 
 app.post('/account/withdraw', function (req, res) {
-    if (!req.session.loggedIn) {
-        res.redirect("/account/login")
-    }
+
     dal.updateOne(req.body.user, req.body.balance)
     dal.createHistory(new Date(), req.body.user, req.body.balance, "withdraw")
     .then((docs) => {
@@ -117,9 +103,7 @@ app.post('/account/withdraw', function (req, res) {
 
 //all accounts
 app.get('/account/all/:email', function(req, res) {
-    if (!req.session.loggedIn) {
-        res.redirect("/account/login")
-    }
+
     dal.allHistory(req.params.email).
         then((docs) => {
             console.log(docs);
