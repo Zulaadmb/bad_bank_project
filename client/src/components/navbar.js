@@ -19,7 +19,7 @@ function NavBar(props){
 
     //
     console.log(props.user);
-    if (props.user === null) {
+    if (props.user === null || props.user === undefined) {
         return(
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <a className="navbar-brand" href="#">Badbank</a>
