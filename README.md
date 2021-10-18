@@ -4,6 +4,8 @@ Bad bank is a basic application for banking customers to login to their secure a
 
 <img src="images/bad_bank_home.png" width="500" height="300">
 
+<img src="images/atlas.png" width="500" height="300">
+
 ## User Story
 
 As a bank customer, I want to be able to check my balance and transaction history online and deposit and withdraw money from my account online.
