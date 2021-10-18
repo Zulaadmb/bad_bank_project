@@ -59,10 +59,10 @@ app.post('/account/login', urlencodedParser, function (req, res) {
         console.log(docs[0].password, req.body.password);
         if (docs[0].password === req.body.password) {
             req.session.loggedIn = req.body.email;
-            res.send("Success");
+            res.send("success");
         }
         else {
-            res.send("Fail");
+            res.send("fail");
         }
     })
 });
