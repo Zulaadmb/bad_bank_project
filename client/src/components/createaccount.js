@@ -3,7 +3,6 @@ import logo from './bank.png';
 import {signup} from '../utils/API';
 
 function CreateAccount(){
-    //setShow is createForm, createMsg
     const [show, setShow]       = React.useState(true);
     const [status, setStatus]   = React.useState('');
     return(
@@ -15,21 +14,13 @@ function CreateAccount(){
             </div>
             <div className="col-md-8">
             <div className="card-body">
-            {show ?                                                //body=""
+            {show ?                                        
                 <CreateForm setShow={setShow}/> : 
                 <CreateMsg setShow={setShow}/>}
             </div>
             </div>
         </div>
         </div>
-        // <Card
-        //     bgcolor="primary"
-        //     header="CreateAccount"
-        //     status={status}                                             //status=""
-        //     body={show ?                                                //body=""
-        //         <CreateForm setShow={setShow}/> : 
-        //         <CreateMsg setShow={setShow}/>}
-        // />
     )
 }
 function CreateMsg(props){
@@ -54,7 +45,6 @@ function CreateForm(props){
             alert("Please enter complete information");
             return
         }
-        // const url = `/account/create/${name}/${email}/${password}`;
         const data = {
                       name: name, 
                       email: email, 
@@ -73,17 +63,6 @@ function CreateForm(props){
                 window.location.replace("/Login");
             }
         })           
-        
-        // ctx.users.push({name,email,password});
-        // props.setShow(false);
-        // const data = {name: name, email: email, password: password}
-        // const signUp = (data) => axios.post("/api/signup", data);
-        // console.log(data);
-        // signUp(data)
-        // .then(res => {
-        //     console.log(res);
-        //     // window.location.replace("/#/login/");
-        // });;
     }
 
     return (<>

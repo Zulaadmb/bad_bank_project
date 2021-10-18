@@ -16,9 +16,7 @@ const ATMWithraw = ({ onChange }) => {
       </label>
     );
   };
-  
-  
-  
+
   const AccountWithdraw = (props) => {
     console.log(props.user);
     const [totalState, setTotalState] = React.useState(0);
@@ -41,11 +39,6 @@ const ATMWithraw = ({ onChange }) => {
         .then((res) => {
           console.log("Fund withdraw successful ", res.data);
         })
-        // (async () => {
-        //     var res = await fetch(url);
-        //     var data = await res.json();
-        //     console.log(data);
-        // })();
     }
     };
   
@@ -54,8 +47,6 @@ const ATMWithraw = ({ onChange }) => {
       if (props.user === undefined) {
         return 
       }
-      // const data = {user: props.user};
-      // const url = `/account/balance/${props.user}`;
       getBalance({email: props.user})
       .then((res) => {
         setTotalState(Number(res.data.docs[0].balance));
@@ -86,7 +77,6 @@ const ATMWithraw = ({ onChange }) => {
     );
   };
   // ========================================
-  ReactDOM.render(<AccountWithdraw />, document.getElementById("root"));
 
   export default AccountWithdraw;
   

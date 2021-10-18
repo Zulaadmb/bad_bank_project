@@ -20,13 +20,6 @@ function Login(props){
                     </div>
                 </div>
                 </div>
-        {/* <Card
-            bgcolor="primary"
-            header="Login"
-            status={status}
-            body={show ?
-                <CreateFormForLogin setShow={setShow} setUser={props.setUser}/> : null}
-        /> */}
         </>
         )
 }

@@ -15,8 +15,6 @@ const ATMDeposit = ({ onChange }) => {
   );
 };
 
-
-
 const Account = (props) => {
   console.log(props.user);
   const [totalState, setTotalState] = React.useState(0);
@@ -29,8 +27,7 @@ const Account = (props) => {
     if (props.user === undefined) {
       return 
     }
-    // const data = {user: props.user};
-    // const url = `/account/balance/${props.user}`;
+
     getBalance({email: props.user})
     .then((res) => {
       setTotalState(Number(res.data.docs[0].balance));
@@ -45,18 +42,12 @@ const Account = (props) => {
   const handleSubmit = (event) => {
     setTotalState(totalState + transactionState);
     event.preventDefault();
-    // const url = `/account/deposit/${props.user}/${totalState + transactionState}`;
     const data = {user: props.user, balance: totalState + transactionState};
     depositFund(data)
     .then((res) => {
       console.log("Successfully updated the balance");
     })
 
-  //   (async () => {
-  //     var res = await fetch(url);
-  //     var data = await res.json();
-  //     console.log(data);
-  // })();
   transactionState = 0;
   };
 
@@ -77,13 +68,7 @@ const Account = (props) => {
         </div>
     </div>
     </div>
-    // <form onSubmit={handleSubmit}>
-    //   <h2 id="total">{status}</h2>
-    //   <ATMDeposit onChange={handleChange}> Deposit</ATMDeposit>
-    // </form>
   );
 };
-// ========================================
-// ReactDOM.render(<Account />, document.getElementById("root"));
 
 export default Account;

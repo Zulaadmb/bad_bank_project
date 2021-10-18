@@ -17,8 +17,6 @@ function AllData(props){
 
     return(
         <>
-
-
         <table class="table table-success table-striped">
          <thead style={{textAlign: "center"}}>
              <h3>Transaction History</h3>
@@ -38,8 +36,7 @@ function AllData(props){
                     <td>{transaction.balance}</td>
                     <td>{transaction.description}</td>
                 </tr>
-             ))}
-            
+             ))}  
          </tbody>
         </table>
    

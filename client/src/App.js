@@ -16,23 +16,15 @@ export default function App (){
       const url = `/account/info`;
       getUserInfo()
       .then((res) => {
-        // setUser(res.data.user);
         const email = localStorage.getItem("loggedUser");
         setUser(email);
         console.log("User set to ", user);
       })
     }, []);
-
-
-    
-    
-    
-  return ( //<NavBar/>
+  return ( 
     <div className='App' style={{ backgroundImage: `url(${background})`, position: 'absolute', left: '50%', top: '60%', transform: 'translate(-50%, -70%)', width: '80%', height: '80%', fontFamily: "IM Fell English SC"}}>
       <Router>
-      
            <NavBar user={user} setUser={setUser}/>
-
               <div className="container" style={{padding: "70px"}}>
                 <Switch>
                   <Route exact path="/" component={() => <Login setUser={setUser} />} />
@@ -43,7 +35,6 @@ export default function App (){
                   <Route path="/Withdraw/" component={() => <AccountWithdraw user={user} />}/>
                 </Switch>
               </div>
-      
       </Router>
       </div>  
   )
