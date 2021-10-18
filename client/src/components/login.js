@@ -32,7 +32,7 @@ function CreateFormForLogin(props){
         window.location.replace("/CreateAccount");
     }
     function handle(){
-        if (email === "" || password === "") {
+        if (email.trim() === "" || password.trim() === "") {
             alert("Please enter complete information");
             return
         }
@@ -44,7 +44,7 @@ function CreateFormForLogin(props){
 
         login(data)  
         .then((res) => {
-            console.log(res);
+            console.log(res.data);
             if (res.data.code === "success") {
                 props.setUser(email);
                 localStorage.setItem("loggedUser", email);

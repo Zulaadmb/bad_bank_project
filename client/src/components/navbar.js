@@ -13,11 +13,6 @@ function NavBar(props){
         window.location.replace("/");
     }
 
-
-    //
-
-
-    //
     console.log(props.user);
     if (props.user === null || props.user === undefined) {
         return(

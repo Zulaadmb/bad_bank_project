@@ -41,7 +41,7 @@ function CreateForm(props){
 
     function handle(){
         console.log(name,email,password);
-        if (name === "" || email === "" || password === "") {
+        if (name.trim() === "" || email.trim() === "" || password.trim() === "") {
             alert("Please enter complete information");
             return
         }
