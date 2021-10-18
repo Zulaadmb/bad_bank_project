@@ -10,7 +10,7 @@ const ATMWithraw = ({ onChange }) => {
         <br></br>
         <input type="number" onChange={onChange}></input>
         <br></br><br></br>
-        <input type="submit" value="Deposit Amount"></input>
+        <input type="submit" value="Withdraw Amount"></input>
         <img src=""></img>
         
       </label>
